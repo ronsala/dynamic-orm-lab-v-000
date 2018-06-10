@@ -2,11 +2,7 @@ require_relative "../config/environment.rb"
 require 'active_support/inflector'
 
 class InteractiveRecord
-<<<<<<< HEAD
 
-=======
-  
->>>>>>> 814b6ab6d63248eeed9585313ed686763d60d49a
   def self.table_name
     self.to_s.downcase.pluralize
   end
@@ -57,8 +53,4 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-<<<<<<< HEAD
 end
-=======
-end
->>>>>>> 814b6ab6d63248eeed9585313ed686763d60d49a
