@@ -54,8 +54,8 @@ class InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  # def self.find_by(name: nil, grade: nil)
-  def self.find_by(name: nil, grade:)
+  def self.find_by(name: nil, grade: nil)
+  # def self.find_by(name: nil, grade:) # missing keyword: grade
     sql = <<-SQL
       SELECT * FROM #{self.table_name} WHERE name = '#{name}';
       SELECT * FROM #{self.table_name} WHERE grade = ?
