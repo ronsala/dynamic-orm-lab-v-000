@@ -59,7 +59,7 @@ class InteractiveRecord
   # def self.find_by({}) # syntax error, unexpected {, expecting ')'
   def self.find_by(argsHash)
     if argsHash.keys.first == :name
-      sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'";
+      sql = "SELECT * FROM #{self.table_name} WHERE name = '#{argsHash[:name]}'";
     end
     binding.pry
     DB[:conn].execute(sql)
