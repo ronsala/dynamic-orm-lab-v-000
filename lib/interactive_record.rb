@@ -59,8 +59,8 @@ class InteractiveRecord
   # def self.find_by({}) # syntax error, unexpected {, expecting ')'
   def self.find_by(argsHash)
     sql = <<-SQL
-      SELECT * FROM #{self.table_name} WHERE name = '#{name}';
-      SELECT * FROM #{self.table_name} WHERE grade = ?
+      SELECT * FROM #{self.table_name} WHERE argsHash.name = '#{name}';
+      SELECT * FROM #{self.table_name} WHERE argsHash.grade = ?
     SQL
     DB[:conn].execute(sql)
   end
