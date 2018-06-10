@@ -1,5 +1,6 @@
 require_relative "../config/environment.rb"
 require 'active_support/inflector'
+require 'pry'
 
 class InteractiveRecord
 
@@ -50,6 +51,19 @@ class InteractiveRecord
 
   def self.find_by_name(name)
     sql = "SELECT * FROM #{self.table_name} WHERE name = '#{name}'"
+    DB[:conn].execute(sql)
+  end
+
+  # def self.find_by(name: nil, grade: nil)
+  # def self.find_by(name: nil, grade:) # missing keyword: grade
+  # def self.find_by({}) # syntax error, unexpected {, expecting ')'
+  def self.find_by(argsHash)
+    if argsHash.keys.first == :name
+      sql = "SELECT * FROM #{self.table_name} WHERE name = '#{argsHash[:name]}'";
+    elsif argsHash.keys.first == :grade
+      sql = "SELECT * FROM #{self.table_name} WHERE grade = #{argsHash[:grade]}";
+    end
+    # binding.pry
     DB[:conn].execute(sql)
   end
 
