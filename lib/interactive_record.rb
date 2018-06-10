@@ -58,8 +58,8 @@ class InteractiveRecord
     sql = <<-SQL
       SELECT * FROM #{self.table_name} WHERE name = '#{name}';
       SELECT * FROM #{self.table_name} WHERE grade = grade
+          binding.pry
     SQL
-    binding.pry
     DB[:conn].execute(sql)
   end
 
