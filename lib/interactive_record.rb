@@ -63,7 +63,7 @@ class InteractiveRecord
     elsif argsHash.keys.first == :grade
       sql = "SELECT * FROM #{self.table_name} WHERE grade = #{argsHash[:grade]}";
     end
-    binding.pry
+    # binding.pry
     DB[:conn].execute(sql)
   end
 
