@@ -60,7 +60,6 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name} WHERE grade = grade
     SQL
     DB[:conn].execute(sql)
-    binding.pry
   end
 
 end
