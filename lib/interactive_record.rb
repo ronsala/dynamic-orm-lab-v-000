@@ -58,10 +58,9 @@ class InteractiveRecord
   # def self.find_by(name: nil, grade:) # missing keyword: grade
   # def self.find_by({}) # syntax error, unexpected {, expecting ')'
   def self.find_by(argsHash)
-    sql = <<-SQL
-      SELECT * FROM #{self.table_name} WHERE name = '#{name}';
-      SELECT * FROM #{self.table_name} WHERE grade = ?
-    SQL
+    if argsHash.keys.first == :name
+      "SELECT * FROM #{self.table_name} WHERE name = #{name}'";
+    end
     binding.pry
     DB[:conn].execute(sql)
   end
