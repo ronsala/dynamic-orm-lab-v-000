@@ -59,7 +59,6 @@ class InteractiveRecord
       SELECT * FROM #{self.table_name} WHERE name = '#{name}';
       SELECT * FROM #{self.table_name} WHERE grade = ?
     SQL
-    binding.pry
     DB[:conn].execute(sql)
   end
 
